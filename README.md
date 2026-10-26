@@ -1,8 +1,8 @@
 # Learning from Small Tabular Data: Robust Gradient Boosting and Adaptive Neural Networks without Hyperparameter Tuning
 
-**Status:** Work in Progress (Preprint preparation)
-**Target:** arXiv
-**Author:** Ilya Emelyanov (Beijing Institute of Technology)
+- **Status:** Work in Progress (Preprint preparation)
+- **Target:** arXiv
+- **Author:** Ilya Emelyanov (Beijing Institute of Technology)
 
 ## 📌 Overview
 
