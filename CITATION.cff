@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this paper, the SmallGBM, or SmallMLP code in your research, please cite this repository."
+authors:
+  - family-names: "Emelyanov"
+    given-names: "Ilya"
+    affiliation: "Beijing Institute of Technology"
+title: "Learning from Small Tabular Data: Robust Gradient Boosting and Adaptive Neural Networks without Hyperparameter Tuning"
+version: 0.1.0
+date-released: "2026-10-26"
+url: "https://github.com/nsdmlk/SmallData_paper"
+preferred-citation:
+  type: article
+  title: "Learning from Small Tabular Data: Robust Gradient Boosting and Adaptive Neural Networks without Hyperparameter Tuning"
+  authors:
+    - family-names: "Emelyanov"
+      given-names: "Ilya"
+  year: 2026
+  notes: "Preprint under preparation for arXiv."
