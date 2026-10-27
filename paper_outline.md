@@ -1,78 +1,60 @@
-
-# Small Data Machine Learning: Robust Boosting and Adaptive Neural Networks
+# Small Data Machine Learning: Fundamental Challenges and Targeted Solutions
 
 **Status:** Draft / Outline
 **Author:** Ilya Emelyanov (Beijing Institute of Technology)
 **Target:** arXiv preprint
 
-## 1. Small Data: Definition and Context
+## 1. Introduction: The Small Data Paradigm
 
-* **Definition:** What constitutes "small data" in tabular ML (e.g., \(n < 1000\)).
-* **The Shift:** Moving from "big data" paradigm (scale-dependent) to low-sample regimes.
-* **Challenges:** High variance, vulnerability to outliers, inability to use standard hyperparameter tuning (no data for validation splits).
+* **Definition:** What constitutes "small data" in tabular ML (e.g., $n < 1000$) and why standard models fail.
+* **The Core Thesis:** Conceptualizing the mathematical bottlenecks of small tabular data and presenting targeted algorithmic solutions (SmallGBM, SmallMLP) to address specific regimes, rather than a universal "one-size-fits-all" framework.
 
-## 2. Applications of Small Data
+## 2. Real-World Applications and Constraints
 
-* **Where it matters:** Medical cohorts (rare diseases), chemistry/catalysis (expensive experiments), particle detectors, astronomy (rare events).
-* **Constraint:** In these domains, getting more data is physically or financially impossible. Algorithms must adapt to the data, not vice versa.
+* **Domains:** Medical cohorts, rare chemistry/catalysis experiments, particle detectors.
+* **The Constraint:** Data acquisition is physically or financially bottlenecked; algorithms must adapt to the data limits, not vice versa.
 
-## 3. Problems of Small Data (The "Why it fails" section)
+## 3. Fundamental Bottlenecks of Small Data Learning
 
-* **Overfitting:** Complex models memorize noise.
-* **Outlier Sensitivity:** A single anomaly destroys standard mean-based estimators (e.g., gradient boosting leaf weights).
-* **Hyperparameter Tuning:** Standard Bayesian optimization or grid search fails due to lack of validation data.
-* **Uncertainty:** Point estimates are not enough; we need calibrated intervals for decision-making.
+* **High Variance & Overfitting:** Complex models memorize noise instead of extracting signal.
+* **Vulnerability to Outliers:** Standard mean-based estimators fail catastrophically on single anomalies.
+* **The Hyperparameter Trap:** Proper validation splits deplete training data, rendering grid/Bayesian search useless.
+* **Uncertainty Quantification:** Point estimates are dangerous and insufficient for high-stakes decisions.
 
-## 4. Mathematical Principles for Small Data
+## 4. Mathematical Principles for Robust Solutions
 
-* **Robust Statistics:** Replacing mean with median (for leaves \(n \le 30\)) and inverse-distance weighted means.
-* **Shrinkage:** Signal-adaptive regularization toward the parent node.
-* **Adaptive Complexity:** Deriving architecture from dataset parameters \((n, d, K)\) rather than searching.
-* **Conformal Prediction:** Distribution-free uncertainty quantification under exchangeability.
+* **Robust Statistics:** Replacing the mean with median estimators and inverse-distance weighting.
+* **Adaptive Complexity:** Deriving network regularization and architecture directly from dataset parameters $(n, d, K)$.
+* **Conformal Prediction:** Distribution-free uncertainty bounds under finite-sample exchangeability.
 
-## 5. Baseline Algorithms (Pros & Cons)
+## 5. Standard Baselines vs. Small Data Realities
 
-* **XGBoost / LightGBM:** Great for scale, but mean-based leaf weights are fragile; hyperparameter tuning is required (fails on small data).
-* **Random Forests:** Robust, but poor at extrapolating and capturing smooth boundaries.
-* **Standard MLPs:** Overfit heavily, require manual architecture search and heavy regularization.
-* **Gaussian Processes:** Good uncertainty, but \(O(n^3)\) complexity and sensitive to kernel choice.
+* **XGBoost / LightGBM:** Fragile mean-based leaves; depend entirely on impossible hyperparameter tuning.
+* **Random Forests:** Robust, but struggle to capture smooth boundaries and extrapolate.
+* **MLPs & GPs:** Standard MLPs overfit; GPs scale poorly and are overly sensitive to kernel choice.
 
-## 6. SmallGBM: Ideas, Math, Code, Limitations
+## 6. Targeted Solutions (Case Studies)
 
-* **Idea:** Gradient boosting tailored for \(n < 1000\).
-* **Math:** Robust leaf weights (median + shrinkage), stochastic split selection (5 random thresholds per feature).
-* **Code:** Native C core (2-3x faster), scikit-learn compatible.
-* **Results:** +0.65% AUC over XGBoost, no tuning required.
-* **Limitations:** Regression unsupported (classification only); degrades on \(n > 1000\).
+* **6.1. SmallGBM: Robust Classification ($n < 1000$)**
+  * *Concept:* Robust leaf weights (median + shrinkage) and stochastic split selection.
+  * *Performance:* Outperforms XGBoost (+0.65% AUC) with zero tuning.
+  * *Honest Limits:* Not suitable for regression tasks or large-scale data ($n > 1000$).
+* **6.2. SmallMLP: Nonlinear Regression and Conformal Uncertainty**
+  * *Concept:* Parameter-derived architecture with weighted conformal prediction.
+  * *Performance:* Best mean rank (1.82) in regression; 19% narrower valid conformal intervals.
+  * *Honest Limits:* Underperforms on strictly linear problems; heteroscedastic datasets can cause undercoverage.
 
-## 7. SmallMLP: Ideas, Math, Code, Limitations
+## 7. Experimental Evaluation & Benchmarks
 
-* **Idea:** Adaptive neural network + weighted conformal prediction.
-* **Math:** Width/regularization derived from \(n, d, K\). Weighted conformal intervals for tighter bounds.
-* **Code:** PyTorch-based, conformal calibration API.
-* **Results:** 25/45 wins in regression (no tuning), 19% narrower intervals vs. split conformal.
-* **Limitations:** Fails on linear problems (LogReg is better); undercovers on ~15% of highly heteroscedastic datasets.
+* **Setup:** Strict zero-tuning evaluation on 20+ synthetic and real-world small datasets.
+* **Results:** Performance tables, Wilcoxon signed-rank tests for statistical significance.
+* **The Scaling Curve:** The critical "AUC/MAE vs $n$" plot demonstrating exactly where standard models (XGBoost/MLP) overtake the proposed methods.
 
-## 8. Experiments and Benchmarks
+## 8. Conclusion and Future Directions
 
-* [benchmarks and experiments]
+* **Summary:** Effective small data learning requires shifting from data-hungry optimization to mathematically constrained, tuning-free algorithms.
+* **Negative Results:** A transparent summary of failed hypotheses (e.g., adaptive depth, PCA width) to guide future research.
 
-## 9. Application of Tools
+## 9. Acknowledgements & References
 
-* **SmallGBM:** Best for small tabular classification (e.g., medical diagnostics, sensor arrays).
-* **SmallMLP:** Best for nonlinear regression with uncertainty requirements (e.g., chemistry, physics experiments).
-
-## 10. Conclusion
-
-* Summarize: Tuning-free, robust methods are necessary for small data.
-* Negative results are valuable (we tried adaptive depth, PCA width, etc., and they failed).
-* Future work: Extending to semi-supervised learning, multi-modal small data.
-
-## 11. Acknowledgements
-
-* Affiliation: Beijing Institute of Technology (BIT).
-* Special thanks: Mohammad Hamza (Postdoc, BIT) for valuable discussions and help with the publication process.
-
-## 12. References
-
-* [To be filled: XGBoost, LightGBM, Conformal Prediction, etc.]
+* **Affiliation:** Beijing Institute of Technology (BIT).

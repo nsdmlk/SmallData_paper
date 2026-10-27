@@ -1,4 +1,4 @@
-# Learning from Small Tabular Data: Robust Gradient Boosting and Adaptive Neural Networks without Hyperparameter Tuning
+# Small Data Machine Learning: Fundamental Challenges and Targeted Solutions
 
 - **Status:** Work in Progress (Preprint preparation)
 - **Target:** arXiv
@@ -6,31 +6,30 @@
 
 ## 📌 Overview
 
-This repository contains the manuscript, LaTeX source, and supplementary materials for the paper **"Learning from Small Tabular Data: Robust Gradient Boosting and Adaptive Neural Networks without Hyperparameter Tuning."**
-
-The paper addresses the critical challenges of machine learning on small tabular datasets (\(n < 1000\)), where standard algorithms (like XGBoost, LightGBM, and standard MLPs) often fail due to overfitting, high variance, and the impossibility of proper hyperparameter tuning. We propose a unified framework comprising two tuning-free methods: **SmallGBM** (robust gradient boosting) and **SmallMLP** (adaptive neural networks with conformal prediction).
+This repository contains the manuscript and supplementary materials for the paper evaluating the critical bottlenecks of machine learning on small tabular datasets ($n < 1000$). Instead of proposing a universal framework, we conceptualize the mathematical challenges (high variance, outlier vulnerability, hyperparameter tuning failure) and present two targeted solutions as case studies: **SmallGBM** (for robust classification) and **SmallMLP** (for nonlinear regression with uncertainty).
 
 ## 🔬 Scope of the Paper
 
-1. **Problem Statement:** Mathematical and practical bottlenecks of small-sample tabular learning (outliers, variance, lack of validation data).
-2. **SmallGBM:** A gradient boosting library with robust leaf weight estimation (median + shrinkage) and stochastic split selection.
-3. **SmallMLP:** An MLP framework with architecture derived from dataset parameters \((n, d, K)\) and weighted conformal intervals for calibrated uncertainty.
-4. **Honest Limitations:** Extensive negative results (what did not work) and clear boundaries of where these methods should not be used.
-5. **Benchmarks:** Comprehensive evaluation on 20+ synthetic and real-world small datasets.
+1. **Fundamental Bottlenecks:** Analysis of why standard models (XGBoost, standard MLPs) fail on small sample sizes.
+2. **Targeted Solutions:**
+   - **SmallGBM:** Robust gradient boosting via median leaf weights and stochastic splits.
+   - **SmallMLP:** Adaptive neural networks with parameter-derived architecture and conformal intervals.
+3. **Honest Limitations:** Clear boundaries of applicability (e.g., $n$-scaling curves showing where standard models take over) and an extensive summary of negative results to guide future research.
+4. **Benchmarks:** Zero-tuning evaluation on 20+ synthetic and real-world small datasets.
 
 ## 🔗 Related Repositories (Code)
 
-The core implementations of the methods discussed in this paper are open-source and available here:
+The core implementations discussed in this paper are open-source and available here:
 
-* 🚀 **[SmallGBM](https://github.com/nsdmlk/SmallGBM)** — Gradient Boosting for small tabular data.
-* 🧠 **[SmallMLP](https://github.com/nsdmlk/SmallMLP)** — Adaptive Neural Networks with Conformal Intervals for small data.
+* 🚀 **[SmallGBM](https://github.com/nsdmlk/SmallGBM)** — Robust Gradient Boosting for $n < 1000$.
+* 🧠 **[SmallMLP](https://github.com/nsdmlk/SmallMLP)** — Adaptive Neural Networks with Conformal Intervals.
 
 ## 📂 Repository Structure
 
 * `paper_outline.md` — Detailed structure, ideas, and section-by-section breakdown.
-* `paper.tex` — Main LaTeX manuscript (in progress).
+* `paper.tex` — Main LaTeX manuscript.
 * `references.bib` — Bibliography database.
-* `figures/` — Plots, diagrams, and benchmark visualizations.
+* `figures/` — Benchmark visualizations, including the critical $n$-scaling plots.
 
 ## 🤝 Acknowledgements
 
