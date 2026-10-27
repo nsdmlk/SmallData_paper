@@ -4,13 +4,13 @@ authors:
   - family-names: "Emelyanov"
     given-names: "Ilya"
     affiliation: "Beijing Institute of Technology"
-title: "Learning from Small Tabular Data: Robust Gradient Boosting and Adaptive Neural Networks without Hyperparameter Tuning"
+title: "Small Data Machine Learning: Fundamental Challenges and Targeted Solutions"
 version: 0.1.0
 date-released: "2026-10-26"
 url: "https://github.com/nsdmlk/SmallData_paper"
 preferred-citation:
   type: article
-  title: "Learning from Small Tabular Data: Robust Gradient Boosting and Adaptive Neural Networks without Hyperparameter Tuning"
+  title: "Small Data Machine Learning: Fundamental Challenges and Targeted Solutions"
   authors:
     - family-names: "Emelyanov"
       given-names: "Ilya"
