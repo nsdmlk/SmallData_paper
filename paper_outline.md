@@ -7,9 +7,9 @@
 ## 1. Introduction: The Small Data Paradigm
 
 * **Definition:** What constitutes "small data" in tabular ML (e.g., $n < 1000$) and why standard models fail.
-* **The Core Thesis:** Conceptualizing the mathematical bottlenecks of small tabular data and presenting targeted algorithmic solutions (SmallGBM, SmallMLP) to address specific regimes, rather than a universal "one-size-fits-all" framework.
+* **The Core Thesis:** Conceptualizing the mathematical bottlenecks of small tabular data and presenting targeted algorithmic solutions (SmallGBM, SmallMLP) to address specific regimes, rather than a universal "one-size-fits-all" framework.(more references)
 
-## 2. Real-World Applications and Constraints
+## 2. Real-World Applications and Constraints(significance)
 
 * **Domains:** Medical cohorts, rare chemistry/catalysis experiments, particle detectors.
 * **The Constraint:** Data acquisition is physically or financially bottlenecked; algorithms must adapt to the data limits, not vice versa.
