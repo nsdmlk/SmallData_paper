@@ -1,0 +1,86 @@
+{
+  "n_train": 300,
+  "n_test": 5000,
+  "n_features": 10,
+  "rates": [
+    0.0,
+    0.01,
+    0.05,
+    0.1,
+    0.2
+  ],
+  "seeds": [
+    11,
+    29,
+    47,
+    71,
+    101,
+    131,
+    173,
+    211,
+    257,
+    307
+  ],
+  "test_seeds": [
+    91001,
+    91002
+  ],
+  "cauchy_scale": "IQR of clean training y; generator only",
+  "cauchy_scale_multiplier": 1.0,
+  "classification": true,
+  "versions": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "torch": "2.15.0",
+    "xgboost": "3.4.1",
+    "matplotlib": "3.11.2",
+    "smallmlp": "0.4.0",
+    "smallgbm": "1.5.0"
+  },
+  "python": "3.12.16 (main, Oct 25 2026, 18:24:37) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "platform": "macOS-27.2.1-arm64-arm-64bit",
+  "xgb_common": {
+    "n_estimators": 200,
+    "max_depth": 3,
+    "learning_rate": 0.05,
+    "min_child_weight": 1,
+    "subsample": 1.0,
+    "colsample_bytree": 1.0,
+    "reg_lambda": 1.0,
+    "tree_method": "hist",
+    "device": "cpu",
+    "n_jobs": 1,
+    "verbosity": 0
+  },
+  "smallmlp": {
+    "activation": "relu",
+    "batch_size": null,
+    "lr": 0.001,
+    "max_epochs": 500,
+    "patience": 30,
+    "random_state": 42,
+    "val_frac": 0.2,
+    "verbose": false,
+    "weight_decay": null
+  },
+  "smallgbm": {
+    "adaptive_prior": false,
+    "auto_scale": false,
+    "bagging_fraction": 0.8,
+    "colsample_bytree": 0.5,
+    "dynamic_depth": false,
+    "learning_rate": 0.1,
+    "max_depth": 3,
+    "min_samples_leaf": 3,
+    "n_bags": 1,
+    "n_estimators": 50,
+    "random_state": null,
+    "sigma_prior": 0.5,
+    "soft_bootstrap": false,
+    "sub_bagging": false,
+    "weighted_residuals": false
+  },
+  "native_rng": "srand(seed) through the installed SmallGBM library; sequential fits",
+  "note": "SmallMLP validation is inside the contaminated training pool. No external test is passed to fit."
+}
