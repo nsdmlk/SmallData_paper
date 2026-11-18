@@ -1,0 +1,21 @@
+{
+  "task": "Gaussian mixture",
+  "seed": 47,
+  "best_candidate": 4,
+  "best_params": "{\"learning_rate\": 0.03, \"max_depth\": 2, \"min_child_weight\": 5, \"n_estimators\": 200}",
+  "default_cv_auc": 0.9333939393939394,
+  "selected_cv_auc": 0.9526464646464646,
+  "default_test80_auc": 0.8827007628030511,
+  "selected_test80_auc": 0.8932416369665479,
+  "cv_gain": 0.019252525252525188,
+  "test80_gain": 0.010540874163496805,
+  "differential_cv_optimism": 0.008711651089028383,
+  "tuning_penalty": -0.0067309869239476905,
+  "smallgbm_minus_tuned": 0.009350597402389638,
+  "selected_cv_minus_test100": 0.05961529252177611,
+  "default_test100_minus_test80": 0.0035994223976897333,
+  "search_seconds": 7.9289013750094455,
+  "refit_seconds": 0.06455302238464355,
+  "train_positives": 54,
+  "test_positives": 2495
+}

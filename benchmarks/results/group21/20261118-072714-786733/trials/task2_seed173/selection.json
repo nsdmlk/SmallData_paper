@@ -1,0 +1,21 @@
+{
+  "task": "Null signal",
+  "seed": 173,
+  "best_candidate": 0,
+  "best_params": "{}",
+  "default_cv_auc": 0.5968282828282828,
+  "selected_cv_auc": 0.5968282828282828,
+  "default_test80_auc": 0.4953467980755876,
+  "selected_test80_auc": 0.4953467980755876,
+  "cv_gain": 0.0,
+  "test80_gain": 0.0,
+  "differential_cv_optimism": 0.0,
+  "tuning_penalty": 0.0,
+  "smallgbm_minus_tuned": 0.011315314848273583,
+  "selected_cv_minus_test100": 0.11013710019279532,
+  "default_test100_minus_test80": -0.008655615440100128,
+  "search_seconds": 7.7829794170102105,
+  "refit_seconds": 0.05874013900756836,
+  "train_positives": 54,
+  "test_positives": 2514
+}

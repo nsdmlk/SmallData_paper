@@ -1,0 +1,21 @@
+{
+  "task": "Nonlinear interactions",
+  "seed": 701,
+  "best_candidate": 6,
+  "best_params": "{\"learning_rate\": 0.03, \"max_depth\": 3, \"min_child_weight\": 1, \"n_estimators\": 200}",
+  "default_cv_auc": 0.8372474747474747,
+  "selected_cv_auc": 0.8696969696969697,
+  "default_test80_auc": 0.8555435975555096,
+  "selected_test80_auc": 0.8660696631141642,
+  "cv_gain": 0.032449494949495006,
+  "test80_gain": 0.010526065558654651,
+  "differential_cv_optimism": 0.021923429390840354,
+  "tuning_penalty": -0.0007033929344387735,
+  "smallgbm_minus_tuned": 0.01533409403502306,
+  "selected_cv_minus_test100": -0.00552378106693352,
+  "default_test100_minus_test80": 0.01897376027395492,
+  "search_seconds": 7.093609916017158,
+  "refit_seconds": 0.10326910018920898,
+  "train_positives": 56,
+  "test_positives": 2444
+}

@@ -1,0 +1,21 @@
+{
+  "task": "Null signal",
+  "seed": 751,
+  "best_candidate": 17,
+  "best_params": "{\"learning_rate\": 0.1, \"max_depth\": 3, \"min_child_weight\": 1, \"n_estimators\": 50}",
+  "default_cv_auc": 0.44145454545454543,
+  "selected_cv_auc": 0.5302828282828284,
+  "default_test80_auc": 0.5012039257551116,
+  "selected_test80_auc": 0.49940666939315215,
+  "cv_gain": 0.08882828282828292,
+  "test80_gain": -0.0017972563619594872,
+  "differential_cv_optimism": 0.09062553919024241,
+  "tuning_penalty": -0.0025062385956423627,
+  "smallgbm_minus_tuned": -0.000334970504675014,
+  "selected_cv_minus_test100": 0.028440690513387934,
+  "default_test100_minus_test80": -0.0018680265813135755,
+  "search_seconds": 7.01741800000309,
+  "refit_seconds": 0.022493839263916016,
+  "train_positives": 46,
+  "test_positives": 2486
+}
