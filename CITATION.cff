@@ -4,15 +4,25 @@ authors:
   - family-names: "Emelyanov"
     given-names: "Ilya"
     affiliation: "Beijing Institute of Technology"
-title: "Small Data Machine Learning: Fundamental Challenges and Targeted Solutions"
-version: 0.1.0
-date-released: "2026-10-26"
+  - family-names: "Dobrydin"
+    given-names: "Dmitrii"
+    affiliation: "Beijing Institute of Technology"
+  - family-names: "Hamza"
+    given-names: "Muhammad"
+    affiliation: "Beijing Institute of Technology"
+title: "Small Data Machine Learning: The Trilemma of Low-Sample Tabular Regimes"
+version: 0.2.0
+date-released: "2026-11-20"
 url: "https://github.com/nsdmlk/SmallData_paper"
 preferred-citation:
   type: article
-  title: "Small Data Machine Learning: Fundamental Challenges and Targeted Solutions"
+  title: "Small Data Machine Learning: The Trilemma of Low-Sample Tabular Regimes"
   authors:
     - family-names: "Emelyanov"
       given-names: "Ilya"
+    - family-names: "Dobrydin"
+      given-names: "Dmitrii"
+    - family-names: "Hamza"
+      given-names: "Muhammad"
   year: 2026
   notes: "Preprint under preparation for arXiv."
