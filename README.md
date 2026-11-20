@@ -1,14 +1,11 @@
-# Small Data Machine Learning: Fundamental Challenges and Targeted Solutions
-
-- **Status:** Active
-- **Authors:** Ilya Emelyanov, Dmitrii Dobrydin, Muhammad Hamza
-- **Affiliation:** Beijing Institute of Technology
+![Small Data Machile Learning](Header.png)
 
 ## 📌 Overview
 
-Machine learning on small tabular datasets ($n < 1000$) presents unique mathematical bottlenecks, including severe overfitting, vulnerability to outliers, and the breakdown of standard hyperparameter tuning. 
+Machine learning on small tabular datasets ($n < 1000$) presents unique mathematical bottlenecks, including severe overfitting, vulnerability to outliers, and the breakdown of standard hyperparameter tuning.
 
 Instead of proposing a universal framework, this paper conceptualizes these fundamental challenges and presents two targeted, pre-tuned algorithmic baselines as case studies:
+
 1. **SmallGBM** (Robust Classification): Utilizes size-adaptive median leaf aggregation to mitigate outlier sensitivity without hyperparameter tuning.
 2. **SmallMLP** (Nonlinear Regression & UQ): An adaptive neural network that derives its architecture directly from dataset parameters $(n, d, K)$ and employs locally weighted conformal prediction for calibrated uncertainty.
 
@@ -22,21 +19,23 @@ Instead of proposing a universal framework, this paper conceptualizes these fund
 ## 📊 Empirical Highlights
 
 - **TabPFN Dimensionality Wall:** While TabPFN is dominant for $d \le 100$, it suffers catastrophic accuracy collapse when forced to compress higher dimensions. SmallMLP scales gracefully to $d=300$ natively without PCA or truncation.
-![TabPFN graph](benchmarks/mlp_dim_wall.png)
+  ![TabPFN graph](benchmarks/mlp_dim_wall.png)
 - **Surviving Heavy-Tailed Contamination:** Under 20% Cauchy noise, SmallMLP reduces mean regression MAE by >50% compared to default XGBoost, while maintaining SOTA accuracy on clean data.
 - **Robust Classification:** SmallGBM achieves statistical parity with XGBoost on clean data, but limits median AUC degradation to 3.7× less under 20% label corruption.
-![Cauchy noise](cauchy_noise_reg.png)
-![Label noise](label_noise_cls.png)
+  ![Cauchy noise](cauchy_noise_reg.png)
+  ![Label noise](label_noise_cls.png)
 
 ## 🔗 Related Repositories & Frameworks
 
 The core implementations discussed in this paper are open-source, alongside the baseline frameworks used for rigorous zero-tuning benchmarking:
 
 **Proposed Methods:**
+
 * 🚀 **[SmallGBM](https://github.com/nsdmlk/SmallGBM)** — Robust Gradient Boosting for $n < 1000$.
 * 🧠 **[SmallMLP](https://github.com/nsdmlk/SmallMLP)** — Adaptive Neural Networks with Conformal Intervals.
 
 **Baselines & Evaluated Frameworks:**
+
 * ⚡ **[XGBoost](https://github.com/dmlc/xgboost)** — Scalable Gradient Boosting (default $L_2$ and oracle $L_1$ baselines).
 * 🐱 **[LightGBM](https://github.com/microsoft/LightGBM)** — Fast, distributed gradient boosting framework.
 * 🌲 **[scikit-learn](https://github.com/scikit-learn/scikit-learn)** — Machine Learning in Python (Random Forests, MLPs, Gaussian Processes, and preprocessing).
@@ -46,7 +45,7 @@ The core implementations discussed in this paper are open-source, alongside the 
 
 ## 🤝 Acknowledgements
 
-This research was conducted independently during undergraduate studies at **Beijing Institute of Technology (BIT)**. 
+This research was conducted independently during undergraduate studies at **Beijing Institute of Technology (BIT)**.
 
 ## 📄 License
 
